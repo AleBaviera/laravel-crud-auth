@@ -96,6 +96,8 @@ class CatAuthController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $cat= Cat::findOrFail($id);
+      $cat -> delete();
+      return redirect('/');
     }
 }
