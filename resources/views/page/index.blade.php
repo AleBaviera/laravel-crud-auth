@@ -11,7 +11,7 @@
     <p>race: {{$cat-> race}}</p>
     <p>cat code: {{$cat-> cat_rfid}}</p>
     <a href="{{route('addCat')}}"><h5>DELETE CAT</h5></a>
-    <a href="{{route('addCat')}}"><h5>UPDATE CAT</h5></a>
+    <a href="{{route('editCat', $cat -> id)}}"><h5>UPDATE CAT</h5></a>
   </div>
 
 <?php endforeach; ?>

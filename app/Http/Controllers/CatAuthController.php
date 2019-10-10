@@ -66,7 +66,8 @@ class CatAuthController extends Controller
      */
     public function edit($id)
     {
-        //
+      $cat= Cat::findOrFail($id);
+      return view('page.update-cat', compact('cat'));
     }
 
     /**
@@ -78,7 +79,13 @@ class CatAuthController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $validatedData = $request->validate([
+        'name'=> 'required',
+        'race'=> 'required',
+        'cat_rfid'=> 'required'
+      ]);
+      Cat::whereId($id)->update($validatedData);
+      return redirect('/');
     }
 
     /**
